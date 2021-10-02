@@ -1,0 +1,94 @@
+h2{
+    font-family: 'Bebas Neue', "sans-serif";
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.cat-container {
+    width: 100%;
+    height: 45px;
+    position: relative;
+    background-color: white;
+}
+
+.cat-up-arrow span, .cat-down-arrow span{
+    position: absolute;
+    display: block;
+    top: 30px;
+    right: 30px;
+    width: 20px;
+    height: 3px;
+    background-color: var(--mainColor);
+    cursor: pointer;
+}
+.cat-down-arrow span{
+    top: 18px;
+}
+
+.cat-up-arrow span:nth-child(1){
+    transform-origin: left;
+    transform: rotate(-50deg);
+    margin-right: 4px;
+}
+.cat-down-arrow span:nth-child(1){
+    transform-origin: left;
+    transform: rotate(50deg);
+    margin-right: 4px;
+}
+.cat-up-arrow span:nth-child(2){
+    transform-origin: right;
+    transform: rotate(50deg);
+}
+.cat-down-arrow span:nth-child(2){
+    transform-origin: right;
+    transform: rotate(-50deg);
+}
+
+.cat-selected {
+    padding: 7px 0;
+    text-align: center;
+}
+
+.cat-inactive {
+    display: none;
+}
+
+.cat-active {
+    text-align: center;
+    background-color: whitesmoke;
+}
+.cat-active h2 {
+    margin-bottom: 7px;
+}
+
+.cat-active h2:hover {
+    background-color: var(--mainColor);
+}
+
+@media (min-width: 62em){
+    .cat-up-arrow, .cat-down-arrow, .cat-selected {
+        display: none;
+    }
+    .cat-inactive, .cat-active {
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .cat-active h2, .cat-inactive h2{
+        padding: 12px 103px;
+        font-size: 1rem;
+    }
+    .cat-item {
+        width: 100%;
+        height: 100%;
+        transition: all 300ms ease-in-out;
+    }
+    .cat-item:hover {
+        cursor: pointer;
+        background-color: var(--mainColor);
+    }
+    .active-catagory {
+        background-color: var(--mainColor);
+    }
+}

@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+:root {
+    --bgColor : rgb(49, 49, 49);
+    --mainColor: rgb(246, 55, 55);
+}
+
+body {
+    background-color: var(--bgColor);
+}
