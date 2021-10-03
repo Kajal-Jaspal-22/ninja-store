@@ -1,6 +1,7 @@
 .hero-image {
     width: 100%;
     height: 250px;
+    z-index: -1;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;

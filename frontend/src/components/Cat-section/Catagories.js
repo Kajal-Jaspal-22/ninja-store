@@ -5,7 +5,6 @@ import "./Catagories.css";
 
 const Catagories = ()=>{
     const {catState, catDispatch} = useContext(catagoryContext);
-    const [catagory] = useState(catState);
     const [isOpen, setIsOpen] = useState(false);
     
 
@@ -43,7 +42,8 @@ const Catagories = ()=>{
                     <span></span>
                     <span></span>
                 </div>
-                <h2 className="cat-selected">{catagory.active}</h2>
+                <h2 className="cat-selected">{catState.active}</h2>
+                
                 <div className={isOpen ? "cat-active" : "cat-inactive"}>
                     <CarItem item="MICE" index={1}/>
                     <CarItem item="KEYBOARDS" index={2}/>
