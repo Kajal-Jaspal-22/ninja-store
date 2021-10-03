@@ -1,0 +1,34 @@
+.discount-bar {
+    width: 100%;
+    height: 45px;
+    background-color: black;
+}
+
+.discount-bar h1{
+    font-size: 1rem;
+    color: var(--mainColor);
+    text-align: center;
+}
+
+.products-catagory-heading {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+@media (min-width:62em){
+    .discount-bar h1{
+        font-size: 1.6rem;
+        padding-top: 9px;
+    }
+    .products-catagory-heading {
+        font-weight: 800;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        color: white;
+    }
+}
+

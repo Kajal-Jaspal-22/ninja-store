@@ -5,6 +5,7 @@ import { catReducer } from "./Context/actions";
 import Navbar from "./components/Navbar/Navbar";
 import Catagories from "./components/Cat-section/Catagories";
 import Hero from "./components/Hero-section/Hero";
+import Products from "./components/Products-section/Products";
 
 const App = ()=>{
     const initCat = {active: "MICE"};
@@ -17,6 +18,7 @@ const App = ()=>{
             <Navbar />
             <Catagories />
             <Hero />
+            <Products />
         </Route>
         </catagoryContext.Provider>
     </BrowserRouter>
