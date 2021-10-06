@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Roboto', 'sans-serif';
 }
 
@@ -9,6 +10,19 @@
     --mainColor: rgb(246, 55, 55);
 }
 
+html::-webkit-scrollbar {
+    width: 5px;
+}
+html::-webkit-scrollbar-track {
+    background: var(--bgColor);
+    border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+
 body {
     background-color: var(--bgColor);
+    overflow-x: hidden;
 }
