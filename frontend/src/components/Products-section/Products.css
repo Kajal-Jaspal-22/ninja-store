@@ -4,6 +4,10 @@
     100% {bottom: 0; opacity: 1;}
 }
 
+a, a:active, a:visited {
+    text-decoration: none;
+    color: black;
+}
 
 .discount-bar {
     width: 100%;
@@ -92,6 +96,11 @@
     position: relative;
     width: 230px;
     height: 310px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.item-container:hover {
+    transform: scale(1.05);
 }
 .item-context {
     background-color: whitesmoke;
@@ -104,6 +113,8 @@
     right: 0;
     background-color: black;
 }
+
+
 .item-cart {
     width: 25px;
     height: 25px;
@@ -113,6 +124,9 @@
     background-size: contain;
     filter: invert(1);
     background-repeat: no-repeat;
+}
+.added-item {
+    background-color: var(--mainColor);
 }
 .item-catagory {
     font-size: 1rem;
@@ -139,8 +153,8 @@
     font-weight: 100;
     font-size: 1.2rem;
     position: absolute;
-    bottom: 40px;
-    left: 10px;
+    bottom: 28px;
+    left: 6px;
 }
 .item-price-details {
     width: 100%;
@@ -171,6 +185,7 @@
     font-weight: 900;
     font-size: 1.2rem;
 }
+
 .main-filters {
     display: none;
 }

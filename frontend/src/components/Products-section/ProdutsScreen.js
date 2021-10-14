@@ -1,18 +1,49 @@
-import React, { useState } from "react";
-import rawData from "./RawJsonData";
+import React, { useState, useEffect, useContext } from "react";
+import { catagoryContext } from "../../Context/context";
+import {Link} from "react-router-dom";
+import axios from "axios";
 
 
 
 const ProductsScreen = ()=>{
+    const {catState} = useContext(catagoryContext);
+    const [data, setData] = useState();
+    
+    
+    useEffect(()=>{
+
+        const patchData = ()=>{
+        axios.patch("http://localhost:4000/api/products", {filter:{key: "catagory", value: catState.active}}, {
+            'content-type': 'application/Json'
+        }).then(r=>{
+            if(r){
+                setData(r.data.doc);
+            }
+        }).catch(e=>{
+            if(e.response){
+                console.log(e.response);
+            }
+        });
+    }
+        patchData();
+    },[catState]);
     
     const Products = ()=>{
 
+        const handleCart = (e)=>{
+            if(e.children.length === 1){
+                e.classList.add("added-item");
+            }else {
+                e.parentElement.classList.add('added-item');
+            }
+        }
         const Item = ({id, image, name, maxPrice, currentPrice, catagory})=>{
             return(
-                <div className="item-container" key={id}>
+                <Link to={`/product?id=${image}`}>
+                    <div className="item-container" key={id}>
                     <div className="item-context">
                         <h2 className="item-catagory">{catagory}</h2>
-                        <div className="item-cart-container"><div className="item-cart" style={{backgroundImage: `url("images/shopping-cart.png")`}}></div></div>
+                        <div onClick={(e)=> handleCart(e.target)} className="item-cart-container"><div className="item-cart" style={{backgroundImage: `url("images/shopping-cart.png")`}}></div></div>
                         <div className="item-image" style={{backgroundImage: `url("images/store/${image}.png")`}} alt="product-image"></div>
                         <h1 className="item-name">{name}</h1>
                     </div>
@@ -24,12 +55,13 @@ const ProductsScreen = ()=>{
                         </div>
                     </div>
                 </div>
+                </Link>
             )
         };
 
         const mapItems = (i)=>{
             return(
-                <Item id={i.id} name={i.name} catagory={i.catagory} image={i.image} maxPrice={i.maxPrice} currentPrice={i.currentPrice} />
+                <Item id={i._id} key={i.productID} name={i.name} catagory={i.catagory} image={i.image} maxPrice={i.maxPrice} currentPrice={i.currentPrice} />
             )
         };
 
@@ -37,7 +69,7 @@ const ProductsScreen = ()=>{
         return(
             <div className="products-container">
                 {/* <Item id="1" name="rayzer gaming mouse." catagory={rawData[0].catagory} image="rayzer" maxPrice={rawData[0].maxPrice} currentPrice={rawData[0].currentPrice} /> */}
-                {rawData.map(i=> mapItems(i))}
+                {data ? data.map(i=> mapItems(i)) : <h1>loading..</h1>}
             </div>
         )
     }
