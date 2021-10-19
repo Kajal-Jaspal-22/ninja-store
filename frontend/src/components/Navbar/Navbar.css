@@ -174,7 +174,7 @@ nav {
         position: absolute;
         left: 4px;
         font-size: 14px;
-        color: var(--mainColor);
+        color: black;
     }
     .btn-nav-login button{
         width: 85px;

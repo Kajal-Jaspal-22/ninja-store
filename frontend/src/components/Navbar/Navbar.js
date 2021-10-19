@@ -1,9 +1,11 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
+import {cartContext} from "../../Context/context";
 import "./Navbar.css";
 import {Link} from "react-router-dom";
 
 const Navbar = ()=>{
     const [isOpen, setIsOpen] = useState(false);
+    const {cartState} = useContext(cartContext);
 
     const handleClick = ()=>{
         setIsOpen(!isOpen);
@@ -31,7 +33,7 @@ const Navbar = ()=>{
                         <div className="nav-cart-circle">
                         <img className="nav-cart-icon" alt="cart-icon" src="images/shopping-cart.png"></img>
                         <div className="nav-cart-count-cirle">
-                            <p className="nav-cart-count">1</p>
+                            <p className="nav-cart-count">{cartState.cart ? cartState.cart.length : 0}</p>
                         </div>
                     </div>
                     </Link>
