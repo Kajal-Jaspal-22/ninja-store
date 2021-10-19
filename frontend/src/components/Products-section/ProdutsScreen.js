@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { catagoryContext } from "../../Context/context";
-import {Link} from "react-router-dom";
+import Item from "./Item";
 import axios from "axios";
 
 
@@ -9,9 +9,7 @@ const ProductsScreen = ()=>{
     const {catState} = useContext(catagoryContext);
     const [data, setData] = useState();
     
-    
     useEffect(()=>{
-
         const patchData = ()=>{
         axios.patch("http://localhost:4000/api/products", {filter:{key: "catagory", value: catState.active}}, {
             'content-type': 'application/Json'
@@ -28,36 +26,8 @@ const ProductsScreen = ()=>{
         patchData();
     },[catState]);
     
-    const Products = ()=>{
 
-        const handleCart = (e)=>{
-            if(e.children.length === 1){
-                e.classList.add("added-item");
-            }else {
-                e.parentElement.classList.add('added-item');
-            }
-        }
-        const Item = ({id, image, name, maxPrice, currentPrice, catagory})=>{
-            return(
-                <Link to={`/product?id=${image}`}>
-                    <div className="item-container" key={id}>
-                    <div className="item-context">
-                        <h2 className="item-catagory">{catagory}</h2>
-                        <div onClick={(e)=> handleCart(e.target)} className="item-cart-container"><div className="item-cart" style={{backgroundImage: `url("images/shopping-cart.png")`}}></div></div>
-                        <div className="item-image" style={{backgroundImage: `url("images/store/${image}.png")`}} alt="product-image"></div>
-                        <h1 className="item-name">{name}</h1>
-                    </div>
-                    <div className="item-price-details">
-                        <h2 className="more-details-btn">View Details</h2>
-                        <div className="item-price">
-                            <p className="max-price">{maxPrice}₹</p>
-                            <p className="current-price">{currentPrice}₹</p>
-                        </div>
-                    </div>
-                </div>
-                </Link>
-            )
-        };
+    const Products = ()=>{
 
         const mapItems = (i)=>{
             return(
@@ -68,7 +38,6 @@ const ProductsScreen = ()=>{
 
         return(
             <div className="products-container">
-                {/* <Item id="1" name="rayzer gaming mouse." catagory={rawData[0].catagory} image="rayzer" maxPrice={rawData[0].maxPrice} currentPrice={rawData[0].currentPrice} /> */}
                 {data ? data.map(i=> mapItems(i)) : <h1>loading..</h1>}
             </div>
         )

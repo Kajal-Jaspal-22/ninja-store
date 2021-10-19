@@ -2,6 +2,27 @@ export const catReducer = (state, action)=>{
     switch(action.type){
         case "switch":
             return {active: action.payload}
-        default: return state
+        default: return state;
     }
-}
+};
+
+export const cartReducer = (state, action)=>{
+    switch(action.type){
+        case "addItem":
+            return {
+                ...state,
+                cart: [...state.cart, {...action.payload, quantity: 1}]
+            }
+        case "addQuantity":
+            return {
+                ...state,
+                cart: state.cart.filter((e)=> e.id === action.payload.id ? e.quantity++ : e.quantity)
+            }
+        case "removeItem": 
+            return {
+                ...state,
+                cart: state.cart.filter((e)=> e.id !== action.payload.id)
+            }
+        default: return state;
+    }
+};

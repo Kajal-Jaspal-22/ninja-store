@@ -5,9 +5,11 @@
     font-family: 'Roboto', 'sans-serif';
 }
 
+/* rgb(246, 55, 55); */
+
 :root {
     --bgColor : rgb(49, 49, 49);
-    --mainColor: rgb(246, 55, 55);
+    --mainColor: rgb(127, 53, 197);
 }
 
 html::-webkit-scrollbar {
