@@ -10,30 +10,25 @@ const Alerts = ()=>{
     useEffect(()=>{
         if(alertState.msg){
             setActive(true);
+            if(alertState.status === "success"){
+                setEmoji("✔️");
+            }else setEmoji("❌");
             setTimeout(()=>{alertDispatch({type: "timeout"})}, 2000);
         }else {
-            setActive(false)
+            setActive(false);
         }
     }, [alertState, alertDispatch]);
 
-    const AlertCard = ({success})=>{
-        if(success){
-            setEmoji("✔️");
-        }else setEmoji("❌");
+    const AlertCard = ()=>{
         return(<div className="alert-container">
                 <h2>{`${emoji}   ${alertState.msg}`}</h2>
         </div>);
     }
 
-    const DisplayAlert = ()=>{
-        if(alertState.status === "success"){
-            return <AlertCard success={true}/>
-        }else return <AlertCard success={false}/>
-    }
 
     
     return (<>
-        {active ? <DisplayAlert /> : null}
+        {active ? <AlertCard /> : null}
     </>)
 }
 
