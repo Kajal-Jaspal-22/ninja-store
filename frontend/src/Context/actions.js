@@ -26,3 +26,17 @@ export const cartReducer = (state, action)=>{
         default: return state;
     }
 };
+
+export const alertReducer = (state, action)=>{
+    switch (action.type) {
+        case "alert":
+            return {
+                ...state,
+                msg: action.payload.msg,
+                status: action.payload.status               
+            }
+        case "timeout":
+            return {}
+        default: return state;
+    }
+}
