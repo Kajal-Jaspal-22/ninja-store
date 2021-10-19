@@ -1,11 +1,12 @@
 import React,{useState, useContext, useEffect} from "react";
-import { cartContext } from "../../Context/context";
+import { cartContext, alertContext } from "../../Context/context";
 import { Link, useHistory } from "react-router-dom";
 
 const Item = ({id, image, name, maxPrice, currentPrice, catagory})=>{
     const history = useHistory();
     const [added, setAdded] = useState(false);
     const {cartState, cartDispatch} = useContext(cartContext);
+    const {alertDispatch} = useContext(alertContext);
     
 
     useEffect(()=>{
@@ -23,6 +24,7 @@ const Item = ({id, image, name, maxPrice, currentPrice, catagory})=>{
     }
     const dispatchCart = (id)=>{
         cartDispatch({type:"addItem", payload:{id: id}});
+        alertDispatch({type:"alert", payload:{msg:"Item added to Cart.", status:"success"}});
     }
     const handleCart = (id)=>{
         const container = cartState.cart.filter(e => e.id===id);
@@ -30,6 +32,7 @@ const Item = ({id, image, name, maxPrice, currentPrice, catagory})=>{
             dispatchCart(id);
         }else {
             cartDispatch({type: "addQuantity", payload:{id: id}});
+            alertDispatch({type:"alert", payload:{msg:"Item Quantity incresed.", status:"success"}});
             }
     }
     return(
