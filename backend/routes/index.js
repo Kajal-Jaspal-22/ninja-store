@@ -6,6 +6,7 @@ import getProducts from "../components/GetProducts.js";
 import patchProducts from "../components/PatchProducts.js";
 import patchDetails from "../components/PatchDetails.js";
 import patchItems from "../components/PatchItems.js";
+import patchCheckout from "../components/PatchCheckout.js";
 
 
 //testing route
@@ -21,6 +22,7 @@ router.post("/login", postLogin);
 router.patch("/products", patchProducts);
 router.patch("/details", patchDetails);
 router.patch("/items", patchItems);
+router.patch("/checkout", patchCheckout);
 
 //get
 router.get("/getproducts", getProducts);
