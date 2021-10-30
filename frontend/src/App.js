@@ -7,6 +7,7 @@ import Catagories from "./components/Cat-section/Catagories";
 import Hero from "./components/Hero-section/Hero";
 import Products from "./components/Products-section/Products";
 import Alerts from "./components/Alerts/Alerts";
+import Cart from "./components/Cart/Cart";
 
 const App = ()=>{
     const initCat = {active: "MICE"};
@@ -34,6 +35,9 @@ const App = ()=>{
             <Catagories />
             <Hero />
             <Products />
+        </Route>
+        <Route path="/cart" exact>
+            <Cart />
         </Route>
         </alertContext.Provider>
         </cartContext.Provider >

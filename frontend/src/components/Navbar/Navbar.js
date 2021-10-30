@@ -29,7 +29,7 @@ const Navbar = ()=>{
                 </div>
                 
                 <div className="nav-right-container hide-for-mobile">
-                    <Link to="#">
+                    <Link to="/cart">
                         <div className="nav-cart-circle">
                         <img className="nav-cart-icon" alt="cart-icon" src="images/shopping-cart.png"></img>
                         <div className="nav-cart-count-cirle">
