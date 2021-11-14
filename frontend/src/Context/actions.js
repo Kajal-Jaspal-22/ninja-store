@@ -28,6 +28,10 @@ export const cartReducer = (state, action)=>{
                 ...state,
                 cart: state.cart.filter((e)=> e.id !== action.payload.id)
             }
+        case "paymentDone":
+            return {
+                cart: []
+            }
         default: return state;
     }
 };

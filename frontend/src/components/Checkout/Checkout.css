@@ -1,0 +1,105 @@
+.checkout-section h1, p{
+    color: rgb(246, 245, 245);
+    font-size: 1.3rem;
+}
+.title-checkout {
+    margin: 20px;
+}
+.order-summary-container {
+    width: 90vw;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--mainColor);
+    border-radius: 10px;
+    transition: all .3s;
+}
+.summary-title-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+}
+.summary-title-container h1 {
+    font-size: 1.2rem;
+}
+.link-cart p{
+    text-decoration: underline;
+    color: var(--mainColor);
+    font-size: 1rem;
+}
+.orders-container {
+    margin: 20px;
+}
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+.details-row span {
+    color: var(--mainColor);
+    font-size: 1.2rem;
+}
+.details-saved-row {
+    margin-top: 20px;
+    border: 1px solid rgb(72, 204, 72);
+    border-radius: 8px;
+}
+.details-saved-row h1 {
+    margin: 5px;
+    font-size: 1.2rem;
+    color: rgb(72, 204, 72);
+}
+
+.checkout-form-container {
+    margin-top: 30px;
+}
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form-row-container {
+    margin: 10px 20px;
+}
+.mini-row {
+    width: 50%;
+}
+.title-form {
+    font-size: 1.1rem;
+    color: rgb(250, 249, 249);
+}
+.title-form-input {
+    width: 95%;
+    height: 38px;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 5px;
+}
+.title-form-input:focus-visible {
+    outline: 1px solid var(--mainColor);
+}
+.payment-container button {
+    margin: 10px 15px;
+    width: 80vw;
+    height: 38px;
+    color: white;
+    background-color: var(--mainColor);
+    border: none;
+    border-radius: 15px;
+}
+
+.payment-container button:disabled {
+    cursor: not-allowed;
+    background-color: transparent;
+    border: 1px solid var(--mainColor);
+}
+
+@media (min-width: 62em){
+    .payment-container button {
+        margin: 10px 40px;
+        width: 120px;
+        cursor: pointer;
+    }
+}

@@ -10,8 +10,7 @@ const CartCheckout = ({data})=>{
         setCart(data);
             axios.patch('http://localhost:4000/api/checkout', {cart, total: true}, {
             headers:{'content-type': 'application/json'}
-        }).then((r)=> r ? setTotal(r.data.total) : null)
-        .catch((e)=> e.response ? console.log(e.response) : null);
+        }).then((r)=> r ? setTotal(r.data.total) : null);
     }, [data, cart]);
 
     const DisplayCheckout = ()=>{

@@ -7,6 +7,7 @@ import patchProducts from "../components/PatchProducts.js";
 import patchDetails from "../components/PatchDetails.js";
 import patchItems from "../components/PatchItems.js";
 import patchCheckout from "../components/PatchCheckout.js";
+import postFakepayment from "../components/PostFakepayment.js";
 
 
 //testing route
@@ -17,6 +18,7 @@ router.get("/online", (req, res)=>{
 //post
 router.post("/register", postRegister);
 router.post("/login", postLogin);
+router.post("/fakepayment", postFakepayment);
 
 //patch
 router.patch("/products", patchProducts);

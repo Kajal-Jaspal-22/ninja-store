@@ -16,7 +16,7 @@ a, a:active, a:visited {
 }
 
 .discount-bar h1{
-    font-size: 1rem;
+    font-size: .8rem;
     color: var(--mainColor);
     text-align: center;
 }
@@ -192,8 +192,8 @@ a, a:active, a:visited {
 
 @media (min-width:62em){
     .discount-bar h1{
-        font-size: 1.6rem;
-        padding-top: 9px;
+        font-size: 1rem;
+        padding-top: 15px;
     }
     .products-catagory-heading {
         font-weight: 800;

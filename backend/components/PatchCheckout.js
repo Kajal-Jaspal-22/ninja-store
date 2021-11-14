@@ -34,7 +34,9 @@ const patchCheckout = (req, res)=>{
                 if(total){
                     return res.json({total: totalPrice});
                 }else {
-                    return res.json({total: totalPrice, maxTotal: maxTotalPrice});
+                    let items = 0;
+                    cart.forEach((t) => items = items + t.quantity);
+                    return res.json({total: totalPrice, maxTotal: maxTotalPrice, items});
                 }
                 
             }

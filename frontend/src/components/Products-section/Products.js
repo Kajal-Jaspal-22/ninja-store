@@ -8,7 +8,7 @@ const Products = ()=>{
     return(
         <section className="products-section">
             <div className="discount-bar">
-                <h1>*USE CODE 'NINJA20' TO GET 20% OFF ON YOUR FIRST ORDER*</h1>
+                <h1>Made with ❤️ by Shubham Ubarhande</h1>
             </div>
             <h1 className="products-catagory-heading">BEST {catState.active} FOR YOU</h1>
             <div className="products-section-grid">
