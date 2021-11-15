@@ -2,12 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import { catagoryContext } from "../../Context/context";
 import Item from "./Item";
 import axios from "axios";
+import { Link, useLocation } from "react-router-dom";
 
 
 
 const ProductsScreen = ()=>{
     const {catState} = useContext(catagoryContext);
     const [data, setData] = useState();
+    const search = useLocation().search;
+    const sort = new URLSearchParams(search).get("filter");
     
     useEffect(()=>{
         const patchData = ()=>{
@@ -15,7 +18,20 @@ const ProductsScreen = ()=>{
             'content-type': 'application/Json'
         }).then(r=>{
             if(r){
-                setData(r.data.doc);
+                if(sort === null){
+                    setData(r.data.doc);
+                }else if(sort === "lth"){
+                    const newData = r.data.doc.sort((a, b)=> a.currentPrice - b.currentPrice);
+                    setData(newData);
+                }else if(sort === "htl"){
+                    const newData = r.data.doc.sort((a,b)=> b.currentPrice - a.currentPrice);
+                    setData(newData);
+                }else if(sort.includes("BRAND")){
+                    const brand = sort.slice(5, sort.length).toUpperCase();
+                    const newData = r.data.doc.filter((t)=> t.brand === brand);
+                    setData(newData);
+                }
+                
             }
         }).catch(e=>{
             if(e.response){
@@ -24,7 +40,7 @@ const ProductsScreen = ()=>{
         });
     }
         patchData();
-    },[catState]);
+    },[catState, sort]);
     
 
     const Products = ()=>{
@@ -71,24 +87,18 @@ const ProductsScreen = ()=>{
                         <div className="sub-filers">
                                 <h2 onClick={(e)=>handleFilterClick(e.target.innerHTML)}>SORT</h2>                        
                             <div onClick={(e)=>{e.target.classList.add('active-filter'); setIsOpen(false)}} className={activeFilter.SORT ? "open-filter" : "close-filter"}>
-                                <p>Price: High to Low</p>
-                                <p>Price: Low to High</p>
+                                <Link to="/"><p>Default</p></Link>
+                                <Link to="/?filter=htl"><p>Price: High to Low</p></Link>
+                                <Link to="/?filter=lth"><p>Price: Low to High</p></Link>
                             </div>
                         </div>
                         <div className="sub-filers">
                             <h2 onClick={(e)=>handleFilterClick(e.target.innerHTML)}>BRANDS</h2>
                             <div onClick={(e)=>{e.target.classList.add('active-filter')}} className={activeFilter.BRANDS ? "open-filter" : "close-filter"}>
-                                    <p>Rayzr</p>
-                                    <p>Corsair</p>
-                                    <p>OnePlus</p>
-                                    <p>Dodge</p>
-                            </div>
-                        </div>
-                        <div className="sub-filers">
-                            <h2 onClick={(e)=>handleFilterClick(e.target.innerHTML)}>DISCOUNTS</h2>
-                            <div onClick={(e)=>{e.target.classList.add('active-filter'); setIsOpen(false)}} className={activeFilter.DISCOUNTS ? "open-filter" : "close-filter"}>
-                                <p>50% and more</p>
-                                <p>20% and more</p>
+                                    <Link to="/?filter=BRANDcorsair"><p>CORSAIR</p></Link>
+                                    <Link to="/?filter=BRANDrazer"><p>RAZER</p></Link>
+                                    <Link to="/?filter=BRANDlogitech"><p>LOGITECH</p></Link>
+                                    <Link to="/?filter=BRANDhyperx"><p>HYPERX</p></Link>
                             </div>
                         </div>
                     </div>
