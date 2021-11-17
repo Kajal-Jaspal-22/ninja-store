@@ -1,0 +1,17 @@
+.search-heading, .search-results-heading {
+    margin: 10px auto;
+    font-size: 1.2rem;
+    color: rgb(246, 246, 246);
+    text-align: center;
+}
+
+@media (min-width: 62em){
+    .search-products-container {
+        margin: 20px 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .search-products-container .item-container{
+        margin: 20px 30px;
+    }
+}

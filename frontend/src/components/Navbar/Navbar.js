@@ -1,27 +1,33 @@
 import React,{useState, useContext} from "react";
 import {cartContext} from "../../Context/context";
 import "./Navbar.css";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 const Navbar = ()=>{
     const [isOpen, setIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
     const {cartState} = useContext(cartContext);
+    const history = useHistory();
 
     const handleClick = ()=>{
         setIsOpen(!isOpen);
     };
 
+    const handleSearch = (t)=>{
+        setSearchTerm(t);
+    }
+
     return(
         <div className="navbar-container">
             <nav>
                 <div className="nav-left-container">
-                  <Link to="#" className="nav-logo-link">
+                  <Link to="/" className="nav-logo-link">
                       <h1>NINJA <span>STORE</span></h1>
                       </Link>
                     <div className="nav-search-bar hide-for-mobile">
                         <img className="nav-search-icon" alt="search-icon" src="images/search.png"></img>
-                        <input className="nav-search-input" type="text" placeholder="search..."></input>
-                        <div className="nav-search-circle">
+                        <input className="nav-search-input" value={searchTerm} onChange={(e)=> handleSearch(e.target.value)} type="text" placeholder="search..."></input>
+                        <div className="nav-search-circle" onClick={()=> history.push(`/search?term=${searchTerm}`)}>
                             <img alt="nav-search-icon" src="images/search.png"></img>
                         </div>
                     </div>
@@ -39,16 +45,16 @@ const Navbar = ()=>{
                     </Link>
                     
                     <div className="btn-nav-login">
-                        <button>Sign UP/IN</button>
+                        <button>WELCOME</button>
                     </div>
                 </div>
                 <div className="nav-hambergur hide-for-desktop">
                     <div className={isOpen ? "hambergur open-menu" : "hambergur"} onClick={()=> handleClick()}><span></span><span></span><span></span></div>
                     <div className="hambergur-menu" style={isOpen ? {} : {display: "none"}}>
-                        <Link to="#">cart</Link>
-                        <Link to="#">Catagories</Link>
-                        <Link to="#">Brands</Link>
-                        <Link to="#">Login</Link>
+                        <Link to="/cart">cart</Link>
+                        <Link to="/checkout">Checkout</Link>
+                        <Link to="/brands">Brands</Link>
+                        <Link to="/">Catagories</Link>
                     </div>
                 </div>
             </nav>

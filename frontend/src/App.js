@@ -9,6 +9,7 @@ import Products from "./components/Products-section/Products";
 import Alerts from "./components/Alerts/Alerts";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import Search from "./components/Search/Search";
 
 const App = ()=>{
     const initCat = {active: "MICE"};
@@ -42,6 +43,11 @@ const App = ()=>{
         </Route>
         <Route path="/checkout" exact>
             <Checkout />
+        </Route>
+        <Route path="/search" exact>
+            <Alerts />
+            <Navbar />
+            <Search />
         </Route>
         </alertContext.Provider>
         </cartContext.Provider>
