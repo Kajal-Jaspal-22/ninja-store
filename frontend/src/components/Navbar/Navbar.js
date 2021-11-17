@@ -26,7 +26,7 @@ const Navbar = ()=>{
                       </Link>
                     <div className="nav-search-bar hide-for-mobile">
                         <img className="nav-search-icon" alt="search-icon" src="images/search.png"></img>
-                        <input className="nav-search-input" value={searchTerm} onChange={(e)=> handleSearch(e.target.value)} type="text" placeholder="search..."></input>
+                        <input className="nav-search-input" value={searchTerm} onChange={(e)=> handleSearch(e.target.value)} type="text" placeholder="SEARCH BY BRAND.."></input>
                         <div className="nav-search-circle" onClick={()=> history.push(`/search?term=${searchTerm}`)}>
                             <img alt="nav-search-icon" src="images/search.png"></img>
                         </div>
