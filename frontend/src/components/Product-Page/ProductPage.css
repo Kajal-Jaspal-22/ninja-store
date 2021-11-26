@@ -1,0 +1,128 @@
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-image {
+    margin: 35px auto;
+    width: 80vw;
+    background-color: rgb(192, 190, 190);
+    border-radius: 20px;
+}
+.product-details-container {
+    width: 80vw;
+}
+.product-heading {
+    color: rgb(248, 247, 247);
+    margin: 5px;
+}
+.product-brand {
+    margin: 8px;
+    font-size: 1.4rem;
+    color: var(--mainColor);
+}
+.product-brand span {
+    margin-right: 10px;
+    font-size: 1rem;
+    color: rgb(248, 247, 247);
+    text-decoration: none;
+}
+.product-brand:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.product-price-container {
+    width: 85%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-price {
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32%;
+    border-radius: 8px;
+}
+.product-price p {
+    font-size: 1rem;
+    color: rgb(240, 240, 240);
+    text-decoration: line-through;
+}
+.product-price h2 {
+    color: var(--mainColor);
+    font-size: 1.6rem;
+}
+.product-savings h2 {
+    color: rgb(20, 197, 20);
+    font-size: 1.4rem;
+}
+.product-description {
+    margin: 25px auto;
+}
+
+.products-buttons-conatiner {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.product-addtocart-btn, .product-buy-btn {
+    width: 48%;
+    height: 45px;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--mainColor);
+    color: white;
+}
+.product-addtocart-btn {
+    background-color: transparent;
+    border: 1px solid var(--mainColor);
+}
+
+
+
+.similar-products-heading {
+    font-size: 1.5rem;
+    color: white;
+    margin: 10px 40px;
+}
+
+
+@media (min-width: 62em){
+    .product-container {
+        flex-direction: row;
+    }
+    .product-image {
+        width: 40%;
+        margin: 30px;
+        transition: all .4s ease-in-out;
+        cursor: pointer;
+    }
+    .product-image:hover {
+        background-color: var(--mainColor);
+    }
+    .product-details-container{
+        width: 60%;
+        margin: 30px;
+    }
+    .product-price-container {
+        width: 40%;
+    }
+    .products-buttons-conatiner{
+        justify-content: flex-start;
+    }
+    .product-addtocart-btn, .product-buy-btn{
+        width: 30%;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .similar-items-container {
+        margin: 30px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
