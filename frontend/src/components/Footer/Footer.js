@@ -13,7 +13,6 @@ const Footer = ()=>{
         </Link>)
     }
     return(<footer>
-            {/* <hr></hr> */}
             <div className="footer-container">
                 <div className="footer-logo-container">
                 <Link to="/" className="nav-logo-link">

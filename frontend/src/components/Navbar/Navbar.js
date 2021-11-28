@@ -51,9 +51,9 @@ const Navbar = ()=>{
                 <div className="nav-hambergur hide-for-desktop">
                     <div className={isOpen ? "hambergur open-menu" : "hambergur"} onClick={()=> handleClick()}><span></span><span></span><span></span></div>
                     <div className="hambergur-menu" style={isOpen ? {} : {display: "none"}}>
-                        <Link to="/cart">cart</Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/cart">Cart</Link>
                         <Link to="/checkout">Checkout</Link>
-                        <Link to="/brands">Brands</Link>
                         <Link to="/">Catagories</Link>
                     </div>
                 </div>
