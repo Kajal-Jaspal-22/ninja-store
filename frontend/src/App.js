@@ -11,6 +11,7 @@ import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import Search from "./components/Search/Search";
 import ProductPage from "./components/Product-Page/ProductPage";
+import Footer from "./components/Footer/Footer";
 
 const App = ()=>{
     const initCat = {active: "MICE"};
@@ -38,22 +39,27 @@ const App = ()=>{
             <Catagories />
             <Hero />
             <Products />
+            <Footer />
         </Route>
         <Route path="/cart" exact>
             <Cart />
+            <Footer />
         </Route>
         <Route path="/checkout" exact>
             <Checkout />
+            <Footer />
         </Route>
         <Route path="/search" exact>
             <Alerts />
             <Navbar />
             <Search />
+            <Footer />
         </Route>
         <Route path="/product" exact>
             <Alerts />
             <Navbar />
             <ProductPage />
+            <Footer />
         </Route>
         </alertContext.Provider>
         </cartContext.Provider>

@@ -30,7 +30,9 @@
 }
 .cart-details {
     width: 90%;
+    padding: 10px;
 }
+
 .cart-item-name, .cart-item-name:active, .cart-item-name:visited {
     color: rgb(236, 236, 236);
 }
@@ -128,6 +130,7 @@
         background-color: rgb(241, 240, 240);
     }
     .cart-details {
+        padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr .5fr;
     }

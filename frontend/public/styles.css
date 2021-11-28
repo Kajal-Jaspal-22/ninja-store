@@ -6,7 +6,9 @@
 }
 
 /* rgb(246, 55, 55); */
-
+#root {
+    height: 100vh;
+}
 :root {
     --bgColor : rgb(49, 49, 49);
     --mainColor: rgb(127, 53, 197);
